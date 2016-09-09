@@ -1,5 +1,6 @@
 package components;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -10,14 +11,28 @@ public class MouseHandler implements MouseMotionListener, MouseListener, MouseWh
 
 	private Canvas canvas;
 
+	private int currentMouseButton;
+	private Point currentMouseClick;
+
 	public MouseHandler(Canvas canvas) {
 		this.canvas = canvas;
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if (currentMouseButton == MouseEvent.BUTTON3) {
 
+			java.awt.Point point = e.getPoint();
+
+			int dx = currentMouseClick.x - point.x;
+			int dy = currentMouseClick.y - point.y;
+
+			canvas.setOriginX(canvas.getOriginX() + dx / canvas.getScaleX());
+			canvas.setOriginY(canvas.getOriginY() - dy / canvas.getScaleY());
+
+			currentMouseClick = e.getPoint();
+			canvas.updateScreen();
+		}
 	}
 
 	@Override
@@ -29,19 +44,17 @@ public class MouseHandler implements MouseMotionListener, MouseListener, MouseWh
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("aaa");
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		currentMouseButton = e.getButton();
+		currentMouseClick = e.getPoint();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		currentMouseButton = -1;
 	}
 
 	@Override
