@@ -8,23 +8,30 @@ import drawing.Drawable;
 public class Point implements Drawable {
 
 	private double[] position = new double[2];
-	private int drawingSize = 1;
+	private int drawingSize;
 	private Color color;
 
 	public Point(double x, double y, Color color) {
 		setColor(color);
 		setPosition(x, y);
+		setDrawingSize(1);
+	}
+
+	public Point(double x, double y, Color color, int drawingSize) {
+		setColor(color);
+		setPosition(x, y);
+		setDrawingSize(drawingSize);
 	}
 
 	@Override
 	public void draw(Canvas canvas) {
-		
+
 		int pixelsX = (int) (getX() * canvas.getScaleX()
 				- (canvas.getOriginX() * canvas.getScaleX() - canvas.getScreenWidth() / 2));
 
 		int pixelsY = (int) (-getY() * canvas.getScaleY()
 				- (-canvas.getOriginY() * canvas.getScaleY() - canvas.getScreenHeight() / 2));
-		
+
 		if (pixelsX > 0 && pixelsY > 0 && pixelsX < canvas.getScreenWidth() && pixelsY < canvas.getScreenHeight()) {
 			Drawable.putPointScreen(pixelsX, pixelsY, getDrawingSize(), color, canvas.getImage());
 		}
@@ -35,7 +42,11 @@ public class Point implements Drawable {
 	}
 
 	public void setDrawingSize(int drawingSize) {
-		this.drawingSize = drawingSize;
+		if (drawingSize > 0) {
+			this.drawingSize = drawingSize;
+		} else {
+			this.drawingSize = 1;
+		}
 	}
 
 	public Color getColor() {
