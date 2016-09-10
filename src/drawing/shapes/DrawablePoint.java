@@ -5,19 +5,19 @@ import java.awt.Color;
 import components.Canvas;
 import drawing.Drawable;
 
-public class Point implements Drawable {
+public class DrawablePoint implements Drawable {
 
 	private double[] position = new double[2];
 	private int drawingSize;
 	private Color color;
 
-	public Point(double x, double y, Color color) {
+	public DrawablePoint(double x, double y, Color color) {
 		setColor(color);
 		setPosition(x, y);
 		setDrawingSize(1);
 	}
 
-	public Point(double x, double y, Color color, int drawingSize) {
+	public DrawablePoint(double x, double y, Color color, int drawingSize) {
 		setColor(color);
 		setPosition(x, y);
 		setDrawingSize(drawingSize);
