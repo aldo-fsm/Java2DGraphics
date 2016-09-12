@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import components.Canvas;
+import drawing.Axis;
 import drawing.shapes.DrawablePoint;
 
 public class Test1 {
@@ -24,11 +25,17 @@ public class Test1 {
 		c.addDrawable(new DrawablePoint(30, -30, Color.GREEN, 10));
 
 		for (int i = 0; i < 3000; i++) {
-			c.addDrawable(new DrawablePoint((double) i / 100, 10 * Math.sin((double) i / 150), new Color(0, 200, 0), 2));
+			c.addDrawable(
+					new DrawablePoint((double) i / 100, 10 * Math.sin((double) i / 150), new Color(0, 200, 0), 2));
 		}
 		for (int i = -1500; i < 1500; i++) {
-			c.addDrawable(new DrawablePoint((double) i / 100, (double) i * i / 100000-5, new Color(200, 0, 0), 2));
+			c.addDrawable(new DrawablePoint((double) i / 100, (double) i * i / 100000 - 5, new Color(200, 0, 0), 2));
 		}
+		for (int i = -1500; i < 1500; i++) {
+			c.addDrawable(new DrawablePoint((double) i / 100, Math.cos((double)i / 100), Color.BLUE, 2));
+		}
+
+		c.addDrawable(new Axis(0, 0, 2));
 
 		c.updateScreen();
 
