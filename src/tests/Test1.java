@@ -32,11 +32,12 @@ public class Test1 {
 			c.addDrawable(new DrawablePoint((double) i / 100, (double) i * i / 100000 - 5, new Color(200, 0, 0), 2));
 		}
 		for (int i = -1500; i < 1500; i++) {
-			c.addDrawable(new DrawablePoint((double) i / 100, Math.cos((double)i / 100), Color.BLUE, 2));
+			c.addDrawable(
+					new DrawablePoint((double) i / 100, (double) i / 100 * Math.cos((double) i / 100), Color.BLUE, 2));
 		}
-		
+
 		c.addDrawable(new Axis(0, 0, 2));
-		
+
 		c.updateScreen();
 
 	}
