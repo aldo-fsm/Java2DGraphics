@@ -12,10 +12,10 @@ public class Test1 {
 	public static void main(String[] args) {
 		JFrame j = new JFrame("test1");
 		j.setVisible(true);
-		j.setSize(500, 500);
+		j.setSize(800, 700);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		Canvas c = new Canvas(500, 500);
+		Canvas c = new Canvas(j.getWidth(), j.getHeight());
 
 		j.add(c);
 
@@ -34,9 +34,9 @@ public class Test1 {
 		for (int i = -1500; i < 1500; i++) {
 			c.addDrawable(new DrawablePoint((double) i / 100, Math.cos((double)i / 100), Color.BLUE, 2));
 		}
-
+		
 		c.addDrawable(new Axis(0, 0, 2));
-
+		
 		c.updateScreen();
 
 	}

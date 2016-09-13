@@ -72,7 +72,7 @@ public class MouseHandler implements MouseMotionListener, MouseListener, MouseWh
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		double scaleX = canvas.getScaleX();
-		double scaleY = canvas.getScaleX();
+		double scaleY = canvas.getScaleY();
 
 		canvas.setScaleX(scaleX - e.getWheelRotation() * scaleX / 10);
 		canvas.setScaleY(scaleY - e.getWheelRotation() * scaleY / 10);
