@@ -19,26 +19,56 @@ public class Test1 {
 
 		j.add(c);
 
-		c.addDrawable(new DrawablePoint(10, 20, Color.BLACK, 10));
-		c.addDrawable(new DrawablePoint(20, 10, Color.BLUE, 10));
-		c.addDrawable(new DrawablePoint(-30, 30, Color.RED, 10));
-		c.addDrawable(new DrawablePoint(30, -30, Color.GREEN, 10));
+		for (int i = -1500; i < 1500; i++) {
+			double x = (double) i / 100;
+			double y = Math.sin(x);
+			c.addDrawable(new DrawablePoint(x, y, Color.BLUE, 2));
+		}
 
-		for (int i = 0; i < 3000; i++) {
-			c.addDrawable(
-					new DrawablePoint((double) i / 100, 10 * Math.sin((double) i / 150), new Color(0, 200, 0), 2));
+		for (int i = -1500; i < 1500; i++) {
+			double x = (double) i / 100;
+			double y = 0;
+			for (int n = 0; n < 1; n++) {
+				y += Math.pow(x, 2 * n + 1) * Math.pow(-1, n) / fatorial(2 * n + 1);
+			}
+			c.addDrawable(new DrawablePoint(x, y, Color.RED, 2));
 		}
 		for (int i = -1500; i < 1500; i++) {
-			c.addDrawable(new DrawablePoint((double) i / 100, (double) i * i / 100000 - 5, new Color(200, 0, 0), 2));
+			double x = (double) i / 100;
+			double y = 0;
+			for (int n = 0; n < 2; n++) {
+				y += Math.pow(x, 2 * n + 1) * Math.pow(-1, n) / fatorial(2 * n + 1);
+			}
+			c.addDrawable(new DrawablePoint(x, y, Color.YELLOW, 2));
 		}
 		for (int i = -1500; i < 1500; i++) {
-			c.addDrawable(
-					new DrawablePoint((double) i / 100, (double) i / 100 * Math.cos((double) i / 100), Color.BLUE, 2));
+			double x = (double) i / 100;
+			double y = 0;
+			for (int n = 0; n < 3; n++) {
+				y += Math.pow(x, 2 * n + 1) * Math.pow(-1, n) / fatorial(2 * n + 1);
+			}
+			c.addDrawable(new DrawablePoint(x, y, Color.GREEN, 2));
+		}
+		for (int i = -1500; i < 1500; i++) {
+			double x = (double) i / 100;
+			double y = 0;
+			for (int n = 0; n < 7; n++) {
+				y += Math.pow(x, 2 * n + 1) * Math.pow(-1, n) / fatorial(2 * n + 1);
+			}
+			c.addDrawable(new DrawablePoint(x, y, Color.CYAN, 2));
 		}
 
 		c.addDrawable(new Axis(0, 0, 2));
 
 		c.updateScreen();
 
+	}
+
+	public static long fatorial(int n) {
+		long result = 1;
+		for (int i = n; i > 1; i--) {
+			result *= i;
+		}
+		return result;
 	}
 }
