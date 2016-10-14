@@ -58,7 +58,7 @@ public class Test1 {
 			c.addDrawable(new DrawablePoint(x, y, Color.CYAN, 2));
 		}
 
-		c.addDrawable(new Axis(0, 0, 2));
+		c.addDrawable(new Axis(0, 0, 1));
 
 		c.updateScreen();
 

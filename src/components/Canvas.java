@@ -11,7 +11,7 @@ import javax.swing.JComponent;
 import drawing.Drawable;
 
 public class Canvas extends JComponent {
-
+ 
 	private static final long serialVersionUID = 1L;
 
 	private BufferedImage screen;
