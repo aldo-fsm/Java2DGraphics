@@ -1,9 +1,9 @@
-package drawing.shapes;
+package com.github.aldofsm.java2DGraphics.drawing.shapes;
 
 import java.awt.Color;
 
-import components.Canvas;
-import drawing.Drawable;
+import com.github.aldofsm.java2DGraphics.components.Canvas;
+import com.github.aldofsm.java2DGraphics.drawing.Drawable;
 
 public class DrawablePoint implements Drawable {
 

@@ -1,4 +1,4 @@
-package components;
+package com.github.aldofsm.java2DGraphics.components;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;

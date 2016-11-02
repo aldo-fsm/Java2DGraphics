@@ -1,4 +1,4 @@
-package components;
+package com.github.aldofsm.java2DGraphics.components;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JComponent;
 
-import drawing.Drawable;
+import com.github.aldofsm.java2DGraphics.drawing.Drawable;
 
 public class Canvas extends JComponent {
  

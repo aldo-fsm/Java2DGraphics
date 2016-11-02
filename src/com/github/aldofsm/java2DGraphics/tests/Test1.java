@@ -1,12 +1,12 @@
-package tests;
+package com.github.aldofsm.java2DGraphics.tests;
 
 import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import components.Canvas;
-import drawing.Axis;
-import drawing.shapes.DrawablePoint;
+import com.github.aldofsm.java2DGraphics.components.Canvas;
+import com.github.aldofsm.java2DGraphics.drawing.Axis;
+import com.github.aldofsm.java2DGraphics.drawing.shapes.DrawablePoint;
 
 public class Test1 {
 	public static void main(String[] args) {

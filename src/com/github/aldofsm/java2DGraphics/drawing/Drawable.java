@@ -1,9 +1,9 @@
-package drawing;
+package com.github.aldofsm.java2DGraphics.drawing;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import components.Canvas;
+import com.github.aldofsm.java2DGraphics.components.Canvas;
 
 public interface Drawable {
 

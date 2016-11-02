@@ -1,10 +1,10 @@
-package drawing;
+package com.github.aldofsm.java2DGraphics.drawing;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import components.Canvas;
+import com.github.aldofsm.java2DGraphics.components.Canvas;
 
 public class Axis implements Drawable {
 
