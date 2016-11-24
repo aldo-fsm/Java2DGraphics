@@ -4,6 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -82,6 +83,7 @@ public class Canvas extends JComponent {
 		if (stroke != null)
 			g2.setStroke(stroke);
 		g2.setColor(color);
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.drawLine(point1[0], point1[1], point2[0], point2[1]);
 	}
 
