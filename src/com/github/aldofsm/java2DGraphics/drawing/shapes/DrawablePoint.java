@@ -25,16 +25,7 @@ public class DrawablePoint implements Drawable {
 
 	@Override
 	public void draw(Canvas canvas) {
-
-		int pixelsX = (int) (getX() * canvas.getScaleX()
-				- (canvas.getOriginX() * canvas.getScaleX() - canvas.getScreenWidth() / 2));
-
-		int pixelsY = (int) (-getY() * canvas.getScaleY()
-				- (-canvas.getOriginY() * canvas.getScaleY() - canvas.getScreenHeight() / 2));
-
-		if (pixelsX > 0 && pixelsY > 0 && pixelsX < canvas.getScreenWidth() && pixelsY < canvas.getScreenHeight()) {
-			Drawable.putPointScreen(pixelsX, pixelsY, getDrawingSize(), color, canvas.getImage());
-		}
+		canvas.drawPoint(getX(), getY(), color, drawingSize);
 	}
 
 	public int getDrawingSize() {

@@ -1,8 +1,10 @@
 package com.github.aldofsm.java2DGraphics.components;
 
 import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Stroke;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ import javax.swing.JComponent;
 import com.github.aldofsm.java2DGraphics.drawing.Drawable;
 
 public class Canvas extends JComponent {
- 
+
 	private static final long serialVersionUID = 1L;
 
 	private BufferedImage screen;
@@ -73,6 +75,31 @@ public class Canvas extends JComponent {
 		}
 	}
 
+	public void drawLine(double x1, double y1, double x2, double y2, Color color, Stroke stroke) {
+		Graphics2D g2 = (Graphics2D) getImage().getGraphics();
+		int[] point1 = convertToScreenCoordinates(x1, y1);
+		int[] point2 = convertToScreenCoordinates(x2, y2);
+		if (stroke != null)
+			g2.setStroke(stroke);
+		g2.setColor(color);
+		g2.drawLine(point1[0], point1[1], point2[0], point2[1]);
+	}
+
+	public void drawPoint(double x, double y, Color color, int size) {
+
+		int[] position = convertToScreenCoordinates(x, y);
+
+		if (position[0] > 0 && position[1] > 0 && position[0] < getScreenWidth() && position[1] < getScreenHeight()) {
+			Drawable.putPointScreen(position[0], position[1], size, color, getImage());
+		}
+	}
+
+	private int[] convertToScreenCoordinates(double x, double y) {
+		int pixelsX = (int) (x * getScaleX() - (getOriginX() * getScaleX() - getScreenWidth() / 2));
+		int pixelsY = (int) (-y * getScaleY() - (-getOriginY() * getScaleY() - getScreenHeight() / 2));
+		return new int[] { pixelsX, pixelsY };
+	}
+
 	public double getOriginX() {
 		return originX;
 	}
@@ -116,6 +143,5 @@ public class Canvas extends JComponent {
 	public BufferedImage getImage() {
 		return screen;
 	}
-
 
 }
