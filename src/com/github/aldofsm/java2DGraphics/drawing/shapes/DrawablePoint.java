@@ -6,7 +6,7 @@ import com.github.aldofsm.java2DGraphics.components.Canvas;
 import com.github.aldofsm.java2DGraphics.drawing.Drawable;
 
 public class DrawablePoint implements Drawable {
-
+ 
 	private double[] position = new double[2];
 	private int drawingSize;
 	private Color color;
